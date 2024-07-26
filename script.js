@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="info">
                         <h3>${mealName}</h3>
                         <p><strong>Category:</strong> ${mealCategory}</p>
-                        <p class="instructions">${shortInstructions}</p>
+                        <p id = 'needsread' class="instructions">${shortInstructions}</p>
                         ${needsReadMoreButton ? '<button class="read-more">Read more</button>' : ''}
                     </div>
                 `;
@@ -48,6 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 container.appendChild(card);
 
                 if (needsReadMoreButton) {
+                    // añadir tres puntos suspensivos
+                    card.querySelector('.instructions').textContent += '...';
                     const readMoreButton = card.querySelector('.read-more');
                     readMoreButton.addEventListener('click', () => {
                         const instructionsPara = card.querySelector('.instructions');
